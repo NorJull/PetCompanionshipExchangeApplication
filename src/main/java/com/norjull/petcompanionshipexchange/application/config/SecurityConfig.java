@@ -47,6 +47,7 @@ public class SecurityConfig {
                     auth.requestMatchers(antMatcher("/api/users/createUser")).permitAll()
                             .requestMatchers(antMatcher("/login")).permitAll()
                             .requestMatchers(antMatcher("/api/users/**")).hasRole(Role.OWNER.name())
+                            .requestMatchers(antMatcher("/api/owners/**")).hasRole(Role.OWNER.name())
                     .anyRequest().authenticated();
                 })
                 .sessionManagement(session -> {
